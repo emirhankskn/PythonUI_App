@@ -1,4 +1,5 @@
 import customtkinter as ctk
+from Utils import data_tables
 
 class MainFrame(ctk.CTkFrame):
     def __init__(self, master, **kwargs):
@@ -179,19 +180,10 @@ class MainFrame(ctk.CTkFrame):
         chart_frame = ctk.CTkFrame(chart_placeholder_frame, height=300)
         chart_frame.pack(fill='both', expand=True, padx=10, pady=10)
 
-        placeholder_text = """
-        This is a placeholder for data visualization charts.
-        
-        In a real application, you would integrate libraries like:
-        - Matplotlib (with TkAgg backend)
-        - Custom drawing on Canvas
-        - Plotly with browser component
-        
-        To create interactive charts, graphs, and visualizations.
-        """
-
-        placeholder_label = ctk.CTkLabel(chart_frame, text=placeholder_text, wraplength=500, justify='center')
-        placeholder_label.place(relx=.5, rely=.5, anchor='center')
+        # Sample Data Plotting
+        # data_tables.plot_big_data(chart_frame) # BIG DATA
+        df = data_tables.get_iris_dataframe()
+        data_tables.plot_iris_data(df, chart_frame)
 
         # Add demo controls
         controls_frame = ctk.CTkFrame(self.chart_tab)
