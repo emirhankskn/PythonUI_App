@@ -42,10 +42,8 @@ def plot_big_data(frame):
         'sensor_4': np.random.normal(loc=15, scale=4, size=num_rows),
     })
 
-    # Step 2: Melt the dataframe for seaborn
     melted = df.melt(id_vars='index', var_name='sensor', value_name='value')
 
-    # Step 3: Plot using Seaborn
     fig, ax = plt.subplots(figsize=(10, 6))
     sns.lineplot(data=melted, x='index', y='value', hue='sensor', ax=ax)
 
@@ -54,7 +52,6 @@ def plot_big_data(frame):
     ax.set_ylabel('Sensor Value')
     fig.tight_layout()
 
-    # Step 4: Draw on your tkinter frame
     canvas = FigureCanvasTkAgg(fig, master=frame)
     canvas.draw()
     canvas.get_tk_widget().pack(fill='both', expand=True)

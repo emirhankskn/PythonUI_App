@@ -180,30 +180,25 @@ class MainFrame(ctk.CTkFrame):
         chart_frame = ctk.CTkFrame(chart_placeholder_frame, height=300)
         chart_frame.pack(fill='both', expand=True, padx=10, pady=10)
 
-        # Sample Data Plotting
-        # data_tables.plot_big_data(chart_frame) # BIG DATA
         df = data_tables.get_iris_dataframe()
         data_tables.plot_iris_data(df, chart_frame)
 
-        # Add demo controls
+        # Demo Controls
         controls_frame = ctk.CTkFrame(self.chart_tab)
         controls_frame.grid(row=2, column=0, padx=20, pady=(0, 20), sticky="ew")
         
-        # Sample chart type selection
         chart_label = ctk.CTkLabel(controls_frame, text="Chart Type:")
         chart_label.grid(row=0, column=0, padx=10, pady=10)
         
         chart_type = ctk.CTkComboBox(controls_frame, values=["Bar Chart", "Line Chart", "Pie Chart", "Scatter Plot"])
         chart_type.grid(row=0, column=1, padx=10, pady=10)
         
-        # Sample data range selection
         range_label = ctk.CTkLabel(controls_frame, text="Date Range:")
         range_label.grid(row=0, column=2, padx=10, pady=10)
         
         date_range = ctk.CTkComboBox(controls_frame, values=["Last 7 Days", "Last 30 Days", "Last Quarter", "Last Year"])
         date_range.grid(row=0, column=3, padx=10, pady=10)
         
-        # Update button
         update_btn = ctk.CTkButton(controls_frame, text="Update Chart")
         update_btn.grid(row=0, column=4, padx=10, pady=10)       
 
